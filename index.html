@@ -18,21 +18,27 @@
 
   <div id='app'>
     <form>
-      <label for="txtPlaca">
-        Placa:<input type='text' id='txtPlaca' size=24>
+      <label for="txtCode">
+        Codigo:<input type='text' id='txtCode' size=24>
       </label>
-      <label for="txtModelo">
-        Modelo:<input type='text' id='txtModelo' size=24>
+      <label for="txtName">
+        Nombre:<input type='text' id='txtName' size=24>
       </label>
-      <label for="txtMarca">
-        Marca:<input type='text' id='txtMarca' size=24>
+      <label for="txtQuantity">
+        Cantidad:<input type='number' id='txtQuantity' size=24>
       </label>
-      <label for="txtColor">
-        Color:<input type='text' id='txtColor' size=24>
+      <label for="txtCost">
+        Costo:<input type='text' id='txtCost' size=23.5>
       </label>
       <button type='button' id='btnAdd'>Agregar</button>
       <button type='button' id='btnSearch'>Buscar</button>
+      <button type='button' id='btnDelete'>Eliminar</button>
+      <button type='button' id='btnList'>Listar</button>
+      <button type='button' id='btnListReverse'>Listar al Reves</button>
+      <button type='button' id='btnPosition'>Posición Deseada</button>
+      :<input type='number' id='txtPosition'>
       <button type='reset'>Cancelar</button>
+      
     </form>
     <div id='detalles'></div>
     <script type="module" src="main.js"></script>
