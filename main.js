@@ -1,7 +1,7 @@
 "use strict";
 
-import SyE from "./script.js";
+import Product from "./producto.js";
 
-let serpYEscaleras = new SyE();
-console.log(serpYEscaleras.boardGame());
+let producto = new Product();
+console.log(producto.test());
 
