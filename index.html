@@ -11,10 +11,33 @@
 </head>
 
 <body>
-  <h1>Ejercicio 5</h1>
-  
-  <h2>Crear App para control un inventario</h2>
-  <script type="module" src="main.js"></script>
+  <div class="header">
+    <h1>Ejercicio 5</h1>
+    <p class="azul">App para control un inventario</p>
+  </div>
+
+  <div id='app'>
+    <form>
+      <label for="txtPlaca">
+        Placa:<input type='text' id='txtPlaca' size=24>
+      </label>
+      <label for="txtModelo">
+        Modelo:<input type='text' id='txtModelo' size=24>
+      </label>
+      <label for="txtMarca">
+        Marca:<input type='text' id='txtMarca' size=24>
+      </label>
+      <label for="txtColor">
+        Color:<input type='text' id='txtColor' size=24>
+      </label>
+      <button type='button' id='btnAdd'>Agregar</button>
+      <button type='button' id='btnSearch'>Buscar</button>
+      <button type='reset'>Cancelar</button>
+    </form>
+    <div id='detalles'></div>
+    <script type="module" src="main.js"></script>
+  </div>
+ 
 </body>
 
 </html>
