@@ -2,12 +2,19 @@
 
 export default class Product{
     
-    constructor(){
-        
+    constructor(codigo, nombre, cantidad, costo){
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.costo = costo;
     }
 
-    test(){
-        console.log("Hola")
+    info(){
+        return "Codigo: " + this.codigo;
+    }
+
+    infoHtml(){
+        return `Producto ${this.codigo}:${(this.nombre).toUpperCase()} (Cantidad: ${this.cantidad} Costo: $${this.costo} Total: $${this.cantidad * this.costo})`;
     }
 
 }
