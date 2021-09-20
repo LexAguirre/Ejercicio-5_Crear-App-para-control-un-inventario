@@ -44,6 +44,21 @@ let btnSearch=document.getElementById('btnSearch');
         detalles.innerHTML +=`${buscado.infoHtml()}`;
     });
 
+let btnDelete=document.getElementById('btnDelete');
+
+    btnDelete.addEventListener('click',()=>{
+        let codigo = document.getElementById('txtCode').value;
+        let buscado = lote.buscar(codigo);
+        let detalles = document.getElementById('detalles');
+        if (buscado == null){
+            detalles.innerHTML += '<p>No se encontro</p>';
+        } else { 
+            detalles.innerHTML +=`<p>El producto ${codigo} ha sido eliminado</p>`;
+            lote.eliminar(codigo);  
+        }
+        
+    });
+
 let btnList = document.getElementById('btnList');
 
     btnList.addEventListener('click',()=>{

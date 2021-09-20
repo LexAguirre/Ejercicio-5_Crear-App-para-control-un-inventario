@@ -24,8 +24,17 @@ export default class inventory{
         return null;
     }
 
-    eliminar() {
+    eliminar(codigo) {
+        let num = this.comprovar(codigo)
+        this.intercambioDeElementos(this.inventario, num, this.inventario.length - 1);
+        console.log(num);
 
+        for (let i = num, j = num + 1; i <= this.inventario.length - 1 && j <= this.inventario.length - 1; i++, j++) {
+            console.log(this.inventario.length - 1, i, j);
+            intercambioDeElementos(this.inventario, i, j)
+        }
+
+        console.log(this.inventario)
     }
 
     listar() {
@@ -35,7 +44,7 @@ export default class inventory{
         } else {
             for(let i=0; i<this.inventario.length; i++){
             document.getElementById('detalles').innerHTML += `
-            <p>Elemento Num.${i}: Codigo ${this.inventario[i].codigo} Nombre ${this.inventario[i].nombre}</p>
+            <p>Elemento Num.${i + 1}: Codigo ${this.inventario[i].codigo} Nombre ${this.inventario[i].nombre}</p>
 
         `;
         }
@@ -49,7 +58,7 @@ export default class inventory{
         } else {
             for(let i = this.inventario.length -1; i >= 0 ; i--){
             document.getElementById('detalles').innerHTML += `
-            <p>Elemento Num.${i}: Codigo ${this.inventario[i].codigo} Nombre ${this.inventario[i].nombre}</p>
+            <p>Elemento Num.${i + 1}: Codigo ${this.inventario[i].codigo} Nombre ${this.inventario[i].nombre}</p>
 
         `;
         }
@@ -78,6 +87,17 @@ export default class inventory{
 
     intercambioDeElementos(datos, i = 0, j = datos.length -1){
         [datos[i], datos[j]] = [datos[j], datos[i]];
+    }
+
+    comprovar(codigo){
+        let posicion = 0;
+
+        for(let i = 0; i < this.inventario.length; i++) {
+            if (this.inventario[i] === codigo) {
+                console.log(i)
+                return posicion = i;
+            } 
+        }
     }
 
 }
