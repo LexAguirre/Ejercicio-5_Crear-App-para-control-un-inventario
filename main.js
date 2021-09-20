@@ -66,17 +66,26 @@ let btnPosition = document.getElementById('btnPosition');
         let posicion = document.getElementById('txtPosition').value;
 
         let producto = new Product(codigo, nombre,cantidad, costo);
-        let posicion = new Position(posicion);
+        let position = new Position(posicion);
+    
+        let prueba = (lote.insertarEnPosicionEspecifica(producto, position));
 
-        if(lote.agregar(producto) === false) {
+        if(prueba === "posicion inexistente"){
+            document.getElementById('detalles').innerHTML += `
+            <p>No se encontro ninguna posicion en la casilla</p>
+            `;
+        } else if(prueba === false) {
             document.getElementById('detalles').innerHTML += `
             <p>Se agotaron los espacios por lo que el producto ${producto.codigo} no se agrego</p>
-
-        `;
+            `;
+        } else if(prueba === "posicion invalida"){
+            document.getElementById('detalles').innerHTML += `
+            <p>La posición ${position.posicion} sobrepasa la cantidad de productos en el inventario</p>
+            `;
         } else {
             document.getElementById('detalles').innerHTML += `
             <p>Se agrego el producto ${producto.codigo} correctamente</p>
-
         `;
         }
+
     });

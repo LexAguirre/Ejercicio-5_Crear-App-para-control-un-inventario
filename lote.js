@@ -56,16 +56,28 @@ export default class inventory{
         }  
     }    
 
-    insertarEnPosicionEspecifica(nuevo){
-        if(this.inventario.length === 20){
+    insertarEnPosicionEspecifica(nuevo, posicion){
+        let position = posicion.get_Position() - 1;
+    
+        if(posicion.get_Position() === ""){
+            return "posicion inexistente";
+        } else if(this.inventario.length === 20){
             return false;
-        } else if(this.inventario.length < 20){
+        } else if(position >= this.inventario.length - 1){
+            return "posicion invalida";
+        } else {
             this.inventario.push(nuevo);
+
+            this.intercambioDeElementos(this.inventario, this.inventario.length-1, position);
+                for (let i = this.inventario.length - 1, j = this.inventario.length - 2; i >= position + 1 && j >= position + 1; i--, j--) {
+
+                    this.intercambioDeElementos(this.inventario, j, i)
+                }
         }
     }
 
-    IntercambioDeElementos(datos, i = 0, j = datos.length -1){
-
+    intercambioDeElementos(datos, i = 0, j = datos.length -1){
         [datos[i], datos[j]] = [datos[j], datos[i]];
     }
+
 }

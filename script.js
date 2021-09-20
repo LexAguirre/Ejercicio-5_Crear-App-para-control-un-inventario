@@ -6,7 +6,7 @@ export default class Position{
         this.posicion = posicion;
     }
 
-    returnPosition(){
+    get_Position(){
         return this.posicion;
     }
 
