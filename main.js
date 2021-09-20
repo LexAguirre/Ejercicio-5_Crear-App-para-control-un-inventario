@@ -54,7 +54,7 @@ let btnDelete=document.getElementById('btnDelete');
             detalles.innerHTML += '<p>No se encontro</p>';
         } else { 
             detalles.innerHTML +=`<p>El producto ${codigo} ha sido eliminado</p>`;
-            lote.eliminar(codigo);  
+            lote.eliminar();  
         }
         
     });

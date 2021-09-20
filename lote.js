@@ -4,6 +4,7 @@ export default class inventory{
     
     constructor(){
         this.inventario = new Array();
+        this.posicion = 0
     }
 
     agregar(nuevo){
@@ -14,24 +15,25 @@ export default class inventory{
         }
     }
 
-    buscar(codigo){
+    buscar(codigo){ 
         for (let i=0; i<this.inventario.length; i++){
             if (codigo == this.inventario[i].codigo){
-            return this.inventario[i];
+                this.posicion = i;
+                return this.inventario[i];
             }
         }
         
         return null;
     }
 
-    eliminar(codigo) {
-        let num = this.comprovar(codigo)
+    eliminar() {
+        let num = this.posicion
         this.intercambioDeElementos(this.inventario, num, this.inventario.length - 1);
-        console.log(num);
+        this.inventario.pop();
 
         for (let i = num, j = num + 1; i <= this.inventario.length - 1 && j <= this.inventario.length - 1; i++, j++) {
             console.log(this.inventario.length - 1, i, j);
-            intercambioDeElementos(this.inventario, i, j)
+            this.intercambioDeElementos(this.inventario, i, j)
         }
 
         console.log(this.inventario)
@@ -88,7 +90,7 @@ export default class inventory{
     intercambioDeElementos(datos, i = 0, j = datos.length -1){
         [datos[i], datos[j]] = [datos[j], datos[i]];
     }
-
+/*
     comprovar(codigo){
         let posicion = 0;
 
@@ -99,5 +101,5 @@ export default class inventory{
             } 
         }
     }
-
+*/
 }
