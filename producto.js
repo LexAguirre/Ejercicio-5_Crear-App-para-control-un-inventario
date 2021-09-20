@@ -14,7 +14,7 @@ export default class Product{
     }
 
     infoHtml(){
-        return `Producto ${this.codigo}:${(this.nombre).toUpperCase()} (Cantidad: ${this.cantidad} Costo: $${this.costo} Total: $${this.cantidad * this.costo})`;
+        return `Producto ${this.codigo}: ${(this.nombre).toUpperCase()} (Cantidad: ${this.cantidad} Costo: $${this.costo} Total: $${this.cantidad * this.costo})`;
     }
 
 }

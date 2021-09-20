@@ -1,9 +1,13 @@
 "use strict";
 
-export default class SyE{
+export default class Position{
     
-    constructor(){
-        
+    constructor(posicion){
+        this.posicion = posicion;
+    }
+
+    returnPosition(){
+        return this.posicion;
     }
 
 }

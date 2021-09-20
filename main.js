@@ -2,9 +2,11 @@
 
 import Product from "./producto.js";
 import inventory from "./lote.js";
+import Position from "./script.js";
 
 let producto = new Product();
 let lote = new inventory();
+let posicion = new Position();
 
 let btnAdd = document.getElementById('btnAdd');
 
@@ -16,20 +18,24 @@ let btnAdd = document.getElementById('btnAdd');
 
         let producto = new Product(codigo, nombre,cantidad, costo);
 
-        lote.agregar(producto);
+        if(lote.agregar(producto) === false) {
+            document.getElementById('detalles').innerHTML += `
+            <p>Se agotaron los espacios por lo que el producto ${producto.codigo} no se agrego</p>
 
-        document.getElementById('detalles').innerHTML += `
+        `;
+        } else {
+            document.getElementById('detalles').innerHTML += `
             <p>Se agrego el producto ${producto.codigo} correctamente</p>
 
         `;
-        //ui.addProducto(nuevo)
+        }
+        
     });
 
 let btnSearch=document.getElementById('btnSearch');
 
     btnSearch.addEventListener('click',()=>{
         let codigo = document.getElementById('txtCode').value;
-        console.log(codigo);
         let buscado = lote.buscar(codigo);
         let detalles = document.getElementById('detalles');
         if (buscado == null)
@@ -38,3 +44,39 @@ let btnSearch=document.getElementById('btnSearch');
         detalles.innerHTML +=`${buscado.infoHtml()}`;
     });
 
+let btnList = document.getElementById('btnList');
+
+    btnList.addEventListener('click',()=>{
+        lote.listar();
+    })
+
+let btnListReverse = document.getElementById('btnListReverse');
+
+    btnListReverse.addEventListener('click',()=>{
+        lote.listarReverso();
+    })
+
+let btnPosition = document.getElementById('btnPosition');
+
+    btnPosition.addEventListener('click',()=>{
+        let codigo = document.getElementById('txtCode').value;
+        let nombre = document.getElementById('txtName').value;
+        let cantidad = document.getElementById('txtQuantity').value;
+        let costo = document.getElementById('txtCost').value;
+        let posicion = document.getElementById('txtPosition').value;
+
+        let producto = new Product(codigo, nombre,cantidad, costo);
+        let posicion = new Position(posicion);
+
+        if(lote.agregar(producto) === false) {
+            document.getElementById('detalles').innerHTML += `
+            <p>Se agotaron los espacios por lo que el producto ${producto.codigo} no se agrego</p>
+
+        `;
+        } else {
+            document.getElementById('detalles').innerHTML += `
+            <p>Se agrego el producto ${producto.codigo} correctamente</p>
+
+        `;
+        }
+    });
